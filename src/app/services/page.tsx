@@ -69,37 +69,37 @@ export default function ServicesPage() {
       title: 'App Development',
       img: '/images/app-dev.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/app-development'
     },
     {
-      title: 'App Development',
-      img: '/images/app-dev.png',
+      title: 'Web Development',
+      img: '/images/web-dev.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/web-development'
     },
     {
-      title: 'App Development',
+      title: 'UI/UX Design',
       img: '/images/app-dev.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/ui-ux'
     },
     {
-      title: 'App Development',
-      img: '/images/app-dev.png',
+      title: 'Graphics Design',
+      img: '/images/graphics.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/graphics-design'
     },
     {
-      title: 'App Development',
-      img: '/images/app-dev.png',
+      title: 'Digital Marketing',
+      img: '/images/digital-marketing.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/digital-marketing'
     },
     {
-      title: 'App Development',
-      img: '/images/app-dev.png',
+      title: 'Social Media Management',
+      img: '/images/social-media.png',
       description: 'Building Seamless Digital Experiences Through Cutting-Edge App Development.',
-      link: '#'
+      link: '/services/social-media-managment'
     },
   ];
 
@@ -148,46 +148,47 @@ export default function ServicesPage() {
       {/* Services Grid Section - custom for this page */}
       <section className="w-full max-w-[1300px]  mx-auto px-4 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {pageServices.map((service, idx) => (
-          <div
-            key={idx}
-            className="relative rounded-2xl bg-gradient-to-br from-[#181e2a] to-[#0a0d12] shadow-xl p-8 flex flex-col items-center justify-between min-h-[320px] min-w-[330px] max-w-[431px] mx-auto border border-[#232c3b]/40 hover:border-blue-400/40 transition-all duration-300 group overflow-hidden"
-          >
-            {/* Image + Title group */}
-            <div className="flex flex-col items-center w-full z-10 transition-all duration-500 group-hover:translate-y-[-40px] group-hover:scale-90 group-hover:mb-2">
-              <img 
-                src={service.img} 
-                alt={service.title} 
-                className="w-41 h-41 object-contain transition-all duration-500" 
-                style={{willChange: 'transform'}}
-              />
-              <div className="font-semibold text-white text-2xl tracking-wide mt-2 text-center w-full transition-all duration-500">
-                {service.title}
-              </div>
-            </div>
-            {/* Description (hidden until hover) */}
-            <div className="text-white text-lg tracking-wide text-center w-full opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8 transition-all duration-500 z-10 pb-4">
-              {service.description}
-            </div>
-            {/* Arrow Button */}
-            <button className="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-[#232c3b] to-[#1e274b] shadow-md group-hover:from-blue-500 group-hover:to-blue-700 transition-all duration-500 z-20">
-              <svg
-                className="w-6 h-6 text-white transition-transform duration-500 group-hover:-rotate-45"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 12h14M13 6l6 6-6 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+          <Link href={service.link} key={idx} className="block focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-2xl">
+            <div
+              className="relative rounded-2xl bg-gradient-to-br from-[#181e2a] to-[#0a0d12] shadow-xl p-8 flex flex-col items-center justify-between min-h-[320px] min-w-[330px] max-w-[431px] mx-auto border border-[#232c3b]/40 hover:border-blue-400/40 transition-all duration-300 group overflow-hidden cursor-pointer"
+            >
+              {/* Image + Title group */}
+              <div className="flex flex-col items-center w-full z-10 transition-all duration-500 group-hover:translate-y-[-40px] group-hover:scale-90 group-hover:mb-2">
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  className="w-41 h-41 object-contain transition-all duration-500" 
+                  style={{willChange: 'transform'}}
                 />
-              </svg>
-            </button>
-            {/* Glow effect on hover */}
-            <div className="absolute inset-0 pointer-events-none rounded-2xl group-hover:bg-blue-400/10 transition-all duration-500" />
-          </div>
+                <div className="font-semibold text-white text-2xl tracking-wide mt-2 text-center w-full transition-all duration-500">
+                  {service.title}
+                </div>
+              </div>
+              {/* Description (hidden until hover) */}
+              <div className="text-white text-lg tracking-wide text-center w-full opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8 transition-all duration-500 z-10 pb-4">
+                {service.description}
+              </div>
+              {/* Arrow Icon (for visual cue) */}
+              <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-[#232c3b] to-[#1e274b] shadow-md group-hover:from-blue-500 group-hover:to-blue-700 transition-all duration-500 z-20">
+                <svg
+                  className="w-6 h-6 text-white transition-transform duration-500 group-hover:-rotate-45"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 pointer-events-none rounded-2xl group-hover:bg-blue-400/10 transition-all duration-500" />
+            </div>
+          </Link>
         ))}
       </section>
       {/* Our Recent Work Section */}

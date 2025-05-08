@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -14,6 +14,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -62,9 +63,14 @@ export default function Navbar() {
           </div>
 
           {/* Contact Button */}
-          <button className="hidden md:block bg-white text-black px-6 py-2 rounded-md hover:bg-blue-400 hover:text-white transition-all">
-            Contact Us
-          </button>
+          <button
+  className="hidden md:block bg-white text-black px-6 py-2 rounded-md hover:bg-blue-400 hover:text-white transition-all"
+  onClick={() => {
+  router.push("/contact");
+}}
+>
+  Contact Us
+</button>
 
           {/* Mobile Menu Button */}
           <button
@@ -122,13 +128,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              onClick={closeMobileMenu}
-              className="block text-center bg-white text-black py-3 px-6 rounded-lg hover:bg-blue-400 hover:text-white transition-all"
-            >
-              Contact Us
-            </Link>
+            <button
+  onClick={() => {
+  closeMobileMenu();
+  router.push("/contact");
+}}
+  className="block text-center bg-white text-black py-3 px-6 rounded-lg hover:bg-blue-400 hover:text-white transition-all"
+>
+  Contact Us
+</button>
           </div>
         </div>
       </div>

@@ -14,7 +14,8 @@ const services = [
     id: '02',
     title: 'Social Media Management',
     description: 'Transforming Businesses With Strategic And Impactful Digital Marketing Solutions.',
-    icon: '/icons/social-media.png'
+    icon: '/icons/social-media.png',
+    link: '/services/social-media-managment'
   },
   {
     id: '03',
@@ -32,11 +33,12 @@ const services = [
     id: '05',
     title: 'UI/UX Design',
     description: 'Transforming Businesses With Strategic And Impactful Digital Marketing Solutions.',
-    icon: '/icons/uiux.png'
+    icon: '/icons/uiux.png',
+    link: '/services/ui-ux'
   },
   {
     id: '06',
-    title: 'Branding',
+    title: 'Graphics design',
     description: 'Transforming Businesses With Strategic And Impactful Digital Marketing Solutions.',
     icon: '/icons/branding.png'
   }
@@ -86,27 +88,48 @@ export default function Services() {
                   {service.description}
                 </p>
                 <div className="flex justify-end">
-                  <Link
-                    href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="inline-flex items-center"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-blue-900/20 flex items-center justify-center group-hover:bg-blue-400 transition-all duration-300">
-                      <svg
-                        className="w-6 h-6 text-white transition-transform duration-500 group-hover:-rotate-45"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5 12h14M13 6l6 6-6 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </Link>
+                  {service.link ? (
+                    <Link href={service.link} className="inline-flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-blue-900/20 flex items-center justify-center group-hover:bg-blue-400 transition-all duration-300">
+                        <svg
+                          className="w-6 h-6 text-white transition-transform duration-500 group-hover:-rotate-45"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12h14M13 6l6 6-6 6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link
+                      href={service.title === 'UI/UX Design' ? '/services/ui-ux' : `/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="inline-flex items-center"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-blue-900/20 flex items-center justify-center group-hover:bg-blue-400 transition-all duration-300">
+                        <svg
+                          className="w-6 h-6 text-white transition-transform duration-500 group-hover:-rotate-45"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12h14M13 6l6 6-6 6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

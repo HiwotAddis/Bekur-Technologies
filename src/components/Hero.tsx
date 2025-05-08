@@ -2,9 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Hero() {
+  const pathname = usePathname();
+  const router = useRouter();
+
   return (
     <section className="relative min-h-screen w-full">
       {/* Background Image with Overlay */}
@@ -35,7 +38,12 @@ export default function Hero() {
                 we create cutting-edge digital solutions that drive growth and success.
               </p>
               <div>
-                <button className="bg-white text-black px-8 py-3 rounded-md hover:bg-blue-400 hover:text-white transition-all">
+                <button
+                  className="bg-white text-black px-8 py-3 rounded-md hover:bg-blue-400 hover:text-white transition-all"
+                  onClick={() => {
+                    router.push("/contact");
+                  }}
+                >
                   Contact Us
                 </button>
               </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,6 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const sectionRef = useRef(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,6 +65,9 @@ export default function Contact() {
             <button
               type="button"
               className="w-full sm:w-auto bg-white hover:bg-gray-100 text-[#020617] font-medium py-4 px-8 sm:px-16 md:px-32 lg:px-64 rounded-lg text-base sm:text-lg transition-all duration-300 shadow-lg"
+              onClick={() => {
+  router.push("/contact");
+}}
             >
               Contact Us
             </button>
